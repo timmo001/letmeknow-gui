@@ -4,9 +4,8 @@ mod settings;
 mod shared;
 
 use tauri::{
-    Emitter,
     menu::{MenuBuilder, MenuItemBuilder, PredefinedMenuItem},
-    Manager,
+    Emitter, Manager,
 };
 use tauri_plugin_autostart::MacosLauncher;
 
@@ -54,7 +53,11 @@ pub fn run() {
             Some(vec![]),
         ))
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![get_settings, set_window, update_settings])
+        .invoke_handler(tauri::generate_handler![
+            get_settings,
+            set_window,
+            update_settings
+        ])
         .setup(|app| {
             {
                 // Setup autostart
@@ -81,7 +84,7 @@ pub fn run() {
                         // Get the settings window
                         let window = app.get_webview_window("settings").unwrap();
 
-                        // Send the show event to the window 
+                        // Send the show event to the window
                         window.emit("show", {}).unwrap();
 
                         // Open devtools on startup
