@@ -12,7 +12,7 @@ name = "letmeknow_gui_lib"
 crate-type = ["lib", "cdylib", "staticlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.0.0-beta.19", features = [] }
+tauri-build = { version = "2.0.0-rc.4", features = [] }
 
 [dependencies]
 fern = { version = "0.6.2", features = ["colored"] }
